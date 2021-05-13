@@ -22,10 +22,10 @@
 #>
 
 param(
-    [Parameter(Mandatory=true, Position=0, ValueFromPipeline=true, HelpMessage="Enter the source directory")]
+    [Parameter(Mandatory = $true, Position = 0, ValueFromPipeline = $true, HelpMessage = "Enter the source directory")]
     [string]
     $source,
-    [Parameter(Mandatory=truePosition=1, ValueFromPipeline=true, HelpMessage="Enter to path to save the zip file")]
+    [Parameter(Mandatory = $true, Position = 1, ValueFromPipeline = $true, HelpMessage = "Enter to path to save the zip file")]
     [string]
     $dest
 )
@@ -38,5 +38,6 @@ Get-ChildItem -Path $source -Directory -Force -ErrorAction SilentlyContinue | Se
     $FullName = $\_.FullName
     $BaseName = $\_.BaseName
     $zip = $BaseName + ".zip"
-    $zipPath = $dest + "" + $zip sz a -tzip "$zipPath" "$FullName" >> C:\\temp\\zip.log 2>&1 
+    $zipPath = $dest + "" + $zip 
+    sz a -tzip "$zipPath" "$FullName" >> C:\\temp\\zip.log 2>&1
 }
